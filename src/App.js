@@ -11,23 +11,30 @@ class App extends Component {
     }
   }
 
+  onChangeHandler(e) {
+    debugger
+    this.setState = ({
+      [e.target.name]: e.target.value
+    })
+  }
+
   render() {
     return (
       <div>
         <h1>BMI Converter</h1>
           <div>
             <label>weight(kg)</label>
-            <input name="weight" value={this.state.weight} onChange={ (e) => this.setState({ weight: e.target.value })} />
+            <input name="weight" onChange={ (e) => this.onChangeHandler(e)} />
           </div>
 
           <div>
-            <label>Height(cm)</label>
-            <input name="height" value={this.state.height} onChange={ (e) => this.setState({ height: e.target.value})} />
+            <label>weight(kg)</label>
+            <input name="height" onChange={ (e) => this.onChangeHandler(e)} />
           </div>
           
           <div>
             <select id="method">
-              <option value="metric">metric</option>
+              <option value="metric">Metric</option>
               <option value="imperial">Imperial</option>
             </select>
           </div>
