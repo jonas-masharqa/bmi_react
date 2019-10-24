@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import DisplayResult from './Components/displayResult';
+import DisplayResult from './Components/DisplayResult';
+import InputForm from './Components/InputForm';
 import './App.css';
 
 class App extends Component {
@@ -12,7 +13,6 @@ class App extends Component {
   }
 
   onChangeHandler(e) {
-    debugger
     this.setState = ({
       [e.target.name]: e.target.value
     })
@@ -20,30 +20,20 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <h1>BMI Converter</h1>
-          <div>
-            <label>weight(kg)</label>
-            <input name="weight" onChange={ (e) => this.onChangeHandler(e)} />
-          </div>
+      <>
+        <div>
+          <InputForm 
+            onChangeForms={this.onChangeHandler.bind(this)}
+          />
+        </div>
 
-          <div>
-            <label>weight(kg)</label>
-            <input name="height" onChange={ (e) => this.onChangeHandler(e)} />
-          </div>
-          
-          <div>
-            <select id="method">
-              <option value="metric">Metric</option>
-              <option value="imperial">Imperial</option>
-            </select>
-          </div>
-
+        <div>
           <DisplayResult
             weight={this.state.weight}
             height={this.state.height}
           />
-      </div>
+        </div>
+      </>
     );
   }
 }
