@@ -23,7 +23,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <h1>BMI Converter</h1>
           <div>
             <label>Weight(kg)</label>
@@ -42,13 +42,13 @@ class App extends Component {
             </select>
           </div>
 
-        <div>
-          <DisplayResult
-            weight={this.state.weight}
-            height={this.state.height}
-            method={this.state.method}
-          />
-        </div>
+          <div>
+            <DisplayResult
+              weight={this.state.weight}
+              height={this.state.height}
+              method={this.state.method}
+            />
+          </div>
       </>
     );
   }
