@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import DisplayResult from './Components/DisplayResult';
-import InputForm from './Components/InputForm';
+import CalculatorForm from './Components/CalculatorForm';
 import './App.css';
 
 class App extends Component {
@@ -13,7 +13,8 @@ class App extends Component {
     }
   }
 
-  onChangeHandler(e) {
+  onChangeHandler = (e) => {
+    debugger
     this.setState({
       [e.target.name]: e.target.value
     })
@@ -24,31 +25,19 @@ class App extends Component {
   render() {
     return (
       <>
-        <h1>BMI Converter</h1>
-          <div>
-            <label>Weight(kg)</label>
-            <input name="weight" onChange={ (e) => this.onChangeHandler(e)} />
-          </div>
+        <div>
+          <CalculatorForm 
+            onChangeHandler={this.onChangeHandler}
+          />
+        </div>
 
-          <div>
-            <label>Height(cm)</label>
-            <input name="height" onChange={ (e) => this.onChangeHandler(e)} />
-          </div>
-          
-          <div>
-            <select id="method" onChange={ (e) => this.onChangeHandler(e)}>
-              <option name="metric" value="metric">Metric</option>
-              <option name="imperial" value="imperial">Imperial</option>
-            </select>
-          </div>
-
-          <div>
-            <DisplayResult
-              weight={this.state.weight}
-              height={this.state.height}
-              method={this.state.method}
-            />
-          </div>
+        <div>
+          <DisplayResult
+            weight={this.state.weight}
+            height={this.state.height}
+            method={this.state.method}
+          />
+        </div>
       </>
     );
   }
