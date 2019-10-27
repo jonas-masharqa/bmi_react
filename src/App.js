@@ -7,16 +7,19 @@ class App extends Component {
     super(props);
     this.state = {
       weight: '',
-      height: ''
+      height: '',
+      method: 'metric'
     }
   }
 
   onChangeHandler(e) {
     debugger
     this.setState({
-      [e.target.id]: e.target.value
+      [e.target.name]: e.target.value
     })
   }
+
+
 
   render() {
     return (
@@ -24,24 +27,25 @@ class App extends Component {
         <h1>BMI Converter</h1>
           <div>
             <label>Weight(kg)</label>
-            <input id="weight" onChange={ (e) => this.onChangeHandler(e)} />
+            <input name="weight" onChange={ (e) => this.onChangeHandler(e)} />
           </div>
 
           <div>
             <label>Height(cm)</label>
-            <input id="height" onChange={ (e) => this.onChangeHandler(e)} />
+            <input name="height" onChange={ (e) => this.onChangeHandler(e)} />
           </div>
           
           <div>
-            <select id="method">
-              <option value="metric">Metric</option>
-              <option value="imperial">Imperial</option>
+            <select id="method" onChange={ (e) => this.onChangeHandler(e)}>
+              <option name="metric" value="metric">Metric</option>
+              <option name="imperial" value="imperial">Imperial</option>
             </select>
           </div>
 
           <DisplayResult
             weight={this.state.weight}
             height={this.state.height}
+            method={this.state.method}
           />
       </div>
     );
