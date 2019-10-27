@@ -27,6 +27,7 @@ describe('BMI Converter', () => {
     })
   })
 
+
   describe('Imperial method',() => {
     beforeEach(() => {
       cy.get('select[id="method"]').select('imperial')

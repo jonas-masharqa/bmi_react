@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import DisplayResult from './Components/displayResult';
+import DisplayResult from './Components/DisplayResult';
+import InputForm from './Components/InputForm';
 import './App.css';
 
 class App extends Component {
@@ -13,7 +14,6 @@ class App extends Component {
   }
 
   onChangeHandler(e) {
-    debugger
     this.setState({
       [e.target.name]: e.target.value
     })
@@ -42,12 +42,14 @@ class App extends Component {
             </select>
           </div>
 
+        <div>
           <DisplayResult
             weight={this.state.weight}
             height={this.state.height}
             method={this.state.method}
           />
-      </div>
+        </div>
+      </>
     );
   }
 }
