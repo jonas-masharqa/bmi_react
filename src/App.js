@@ -13,8 +13,8 @@ class App extends Component {
 
   onChangeHandler(e) {
     debugger
-    this.setState = ({
-      [e.target.name]: e.target.value
+    this.setState({
+      [e.target.id]: e.target.value
     })
   }
 
@@ -23,13 +23,13 @@ class App extends Component {
       <div>
         <h1>BMI Converter</h1>
           <div>
-            <label>weight(kg)</label>
-            <input name="weight" onChange={ (e) => this.onChangeHandler(e)} />
+            <label>Weight(kg)</label>
+            <input id="weight" onChange={ (e) => this.onChangeHandler(e)} />
           </div>
 
           <div>
-            <label>weight(kg)</label>
-            <input name="height" onChange={ (e) => this.onChangeHandler(e)} />
+            <label>Height(cm)</label>
+            <input id="height" onChange={ (e) => this.onChangeHandler(e)} />
           </div>
           
           <div>
